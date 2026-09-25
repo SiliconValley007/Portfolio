@@ -76,4 +76,4 @@ The hero canvas doubles as a reactive surface. Press-and-drag (or touch-and-drag
 
 Open `index.html` in any browser, or run `python -m http.server`.
 
-### Copyright (c) 2026 Your Name. All rights reserved
+### Copyright (c) 2026 Debjeet Das. All rights reserved
