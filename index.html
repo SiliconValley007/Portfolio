@@ -12,6 +12,14 @@
         if (t === "light" || t === "dark")
           document.documentElement.setAttribute("data-theme", t);
       } catch (e) {}
+      try {
+        document.documentElement.setAttribute(
+          "data-gd",
+          localStorage.getItem("dd_games_open") === "0" ? "0" : "1",
+        );
+      } catch (e) {
+        document.documentElement.setAttribute("data-gd", "1");
+      }
     </script>
     <title>Debjeet Das | Software Engineer</title>
     <meta
@@ -24,7 +32,7 @@
     <meta property="og:site_name" content="Debjeet Das" />
     <meta
       property="og:description"
-      content="Software Engineer at Amdocs. Play 12 browser games and explore the work of Debjeet Das."
+      content="Software Engineer at Amdocs. Play 14 browser games and explore the work of Debjeet Das."
     />
     <meta name="twitter:card" content="summary_large_image" />
     <meta property="og:type" content="website" />
@@ -39,7 +47,7 @@
     <meta name="twitter:title" content="Debjeet Das | Software Engineer" />
     <meta
       name="twitter:description"
-      content="Software Engineer at Amdocs. Play 12 browser games and explore the work of Debjeet Das."
+      content="Software Engineer at Amdocs. Play 14 browser games and explore the work of Debjeet Das."
     />
     <meta
       name="twitter:image"
@@ -924,6 +932,177 @@
         gap: 8px;
         margin-bottom: 32px;
       }
+      /* GAMES DROPDOWN */
+      .gbar {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin: 0 0 20px;
+        color: var(--mu);
+        font: 0.75rem var(--m);
+      }
+      .gbar .gt {
+        white-space: nowrap;
+      }
+      .gbar .gl {
+        position: relative;
+        flex: 1;
+        height: 1px;
+        background: var(--ln);
+        overflow: hidden;
+      }
+      .gbar .gl::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(90deg, var(--c1), transparent);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+      }
+      html[data-gd="1"] .gbar .gl::after {
+        transform: scaleX(1);
+      }
+      .gbar .gdd.chip,
+      .gbar .gdd.chip:active,
+      .gbar .gdd.chip:hover {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        flex: none;
+        padding: 5px 12px 5px 14px;
+        border: 1px solid var(--ln);
+        border-radius: 99px;
+        background: none;
+        color: var(--mu);
+        font: 0.75rem var(--m);
+        line-height: 1.4;
+        transform: none;
+        transition:
+          color 0.3s,
+          border-color 0.3s,
+          background 0.3s,
+          box-shadow 0.3s;
+      }
+      .gbar .gdd.chip {
+        position: relative;
+      }
+      .gbar .gdd.chip::after {
+        content: "";
+        position: absolute;
+        inset: -8px -6px;
+      }
+      .gdd .gs {
+        display: grid;
+        justify-items: start;
+      }
+      .gdd .gs > span {
+        grid-area: 1 / 1;
+        transition: opacity 0.3s;
+      }
+      .gdd .gs-e,
+      html[data-gd="0"] .gdd .gs-c {
+        opacity: 0;
+      }
+      html[data-gd="0"] .gdd .gs-e {
+        opacity: 1;
+      }
+      .gdd .gi {
+        display: grid;
+        place-items: center;
+        width: 14px;
+        height: 14px;
+        transition: transform 0.5s cubic-bezier(0.3, 0.8, 0.3, 1);
+      }
+      .gdd .gi svg {
+        width: 14px;
+        height: 14px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 2.4;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      html[data-gd="0"] .gdd .gi {
+        transform: rotate(-90deg);
+      }
+      @media (hover: hover) and (pointer: fine) {
+        .gbar .gdd.chip:hover {
+          color: var(--ink-on-accent);
+          border-color: var(--c1);
+          background: var(--pill-bg);
+          box-shadow: 0 0 14px -4px rgba(var(--c1rgb), calc(0.5 + var(--a-add, 0)));
+        }
+      }
+      .gbar .gdd.chip:active {
+        color: var(--ink-on-accent);
+        border-color: var(--c1);
+        background: var(--pill-bg);
+      }
+      .gdd:focus-visible {
+        outline: 2px solid var(--c1);
+        outline-offset: 3px;
+      }
+      .gpanel {
+        display: grid;
+        grid-template-rows: 1fr;
+        transition:
+          grid-template-rows 0.7s cubic-bezier(0.2, 0.8, 0.2, 1),
+          opacity 0.5s ease,
+          filter 0.5s ease,
+          visibility 0s;
+      }
+      .gpanel > .gin {
+        min-height: 0;
+        overflow: hidden;
+        margin: -40px -12px;
+        padding: 40px 12px;
+        pointer-events: none;
+      }
+      .gpanel > .gin > * {
+        pointer-events: auto;
+      }
+      .gbar {
+        position: relative;
+        z-index: 2;
+      }
+      html:not([data-gd="0"]) .gpanel.done > .gin {
+        overflow: visible;
+      }
+      html[data-gd="0"] .gpanel {
+        grid-template-rows: 0fr;
+        opacity: 0;
+        filter: blur(6px);
+        visibility: hidden;
+        pointer-events: none;
+        transition:
+          grid-template-rows 0.6s cubic-bezier(0.6, 0, 0.2, 1),
+          opacity 0.35s ease,
+          filter 0.4s ease,
+          visibility 0s 0.6s;
+      }
+      .gpanel.pop #gm .t {
+        animation: gpop 0.65s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+        animation-delay: calc(var(--gi, 0) * 0.05s + 0.08s);
+      }
+      @keyframes gpop {
+        from {
+          opacity: 0;
+          transform: translateY(26px) scale(0.94);
+        }
+      }
+      html:not([data-gd]) .gpanel {
+        transition: none;
+      }
+      @media (max-width: 520px) {
+        .gdd {
+          gap: 10px;
+          padding: 12px 14px;
+        }
+        .gdd .gt small {
+          display: none;
+        }
+      }
       .ach {
         display: flex;
         flex-wrap: wrap;
@@ -1692,6 +1871,10 @@
           opacity: 1;
           transform: none;
         }
+        .gpanel,
+        html[data-gd="0"] .gpanel {
+          filter: none;
+        }
         .bar i {
           transform: scaleX(var(--v));
         }
@@ -1839,9 +2022,33 @@
             min-height: 1.4em;
           "
         ></p>
-        <div class="ach rv" id="ach" aria-label="Achievements"></div>
-        <div class="fl rv" id="fl"></div>
-        <div class="grid" id="gm"></div>
+        <div class="gbar rv">
+          <span class="gt" id="gdc">Games</span>
+          <span class="gl" aria-hidden="true"></span>
+          <button
+            type="button"
+            class="gdd chip"
+            id="gdd"
+            aria-expanded="true"
+            aria-controls="gpanel"
+            aria-label="Toggle games list"
+          >
+            <span class="gs" aria-hidden="true"
+              ><span class="gs-c">Collapse</span
+              ><span class="gs-e">Expand</span></span
+            >
+            <span class="gi" aria-hidden="true"
+              ><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" /></svg
+            ></span>
+          </button>
+        </div>
+        <div class="gpanel done" id="gpanel">
+          <div class="gin">
+            <div class="ach rv" id="ach" aria-label="Achievements"></div>
+            <div class="fl rv" id="fl"></div>
+            <div class="grid" id="gm"></div>
+          </div>
+        </div>
       </section>
 
       <section id="about">
@@ -2091,7 +2298,27 @@
             "Control a spaceship following physics to the dot and shoot enemies.",
             185,
           ],
-
+          [
+            "Torque Overdrive",
+            "Torque-Overdrive",
+            "Casual",
+            "Control a bike with nitrous and jump.",
+            237,
+          ],
+          [
+            "Metal Shatter Arena",
+            "Metal-Shatter-Arena",
+            "Shooter",
+            "Control a mecha and destroy everything you want.",
+            337,
+          ],
+          [
+            "FORMICIDAE HIVEMIND",
+            "FORMICIDAE-HIVEMIND",
+            "Shooter",
+            "Control a queen ant which in turn controls hundreds of ants.",
+            137,
+          ],
         ];
         const SKILLS = [
           ["Java", 90, "Backend logic, OOP and game fundamentals.", 20],
@@ -2147,6 +2374,48 @@
             c.classList.add("in");
           });
         });
+        /* ===== GAMES DROPDOWN ===== */
+        (function () {
+          const root = document.documentElement,
+            btn = $("#gdd"),
+            pn = $("#gpanel"),
+            gin = $(".gin", pn);
+          if (!btn || !pn) return;
+          $$("#gm .t").forEach((c, i) => c.style.setProperty("--gi", i % 12));
+          $("#gdc").textContent = GAMES.length + " games";
+          let tm = 0;
+          const isOpen = () => root.getAttribute("data-gd") !== "0";
+          function sync() {
+            const o = isOpen();
+            btn.setAttribute("aria-expanded", o);
+            btn.setAttribute("aria-label", o ? "Collapse games" : "Expand games");
+            pn.toggleAttribute("inert", !o);
+            pn.setAttribute("aria-hidden", !o);
+          }
+          sync();
+          btn.addEventListener("click", () => {
+            const o = !isOpen();
+            clearTimeout(tm);
+            pn.classList.remove("done", "pop");
+            if (o)
+              $$(".rv", pn).forEach((e) => {
+                e.classList.add("in");
+              });
+            root.setAttribute("data-gd", o ? "1" : "0");
+            if (o && !RM) pn.classList.add("pop");
+            sync();
+            try {
+              localStorage.setItem("dd_games_open", o ? "1" : "0");
+            } catch (e) {}
+            tm = setTimeout(
+              () => {
+                pn.classList.remove("pop");
+                if (o) pn.classList.add("done");
+              },
+              RM ? 30 : 1300,
+            );
+          });
+        })();
         /* ===== TYPING ===== */
         const ty = $("#ty"),
           R = [

@@ -21,7 +21,7 @@ The typing effect shows a blinking pink caret, and the text-selection caret is h
 ## Sections
 
 - **Hero**: glitch name, typing roles, interactive particle field, Enter/Exit Experience toggle, GitHub button
-- **Games** (Level 1): 10 live browser games with genre filters; each card opens the game in a new tab
+- **Games** (Level 1): 14 live browser games with genre filters, inside a collapsible dropdown (open by default; the open/closed choice is saved in `localStorage.dd_games_open`); each card opens the game in a new tab
 - **About** (Level 2): short narrative and animated counters
 - **Experience** (Level 3): Software Engineer at Amdocs, 2 years
 - **Skills** (Level 4): Java, Python, Flutter, C# with animated bars
@@ -76,4 +76,4 @@ The hero canvas doubles as a reactive surface. Press-and-drag (or touch-and-drag
 
 Open `index.html` in any browser, or run `python -m http.server`.
 
-### Copyright (c) 2026 Your Name. All rights reserved
+### Copyright (c) 2026 Debjeet Das. All rights reserved
