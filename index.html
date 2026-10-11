@@ -15,10 +15,10 @@
       try {
         document.documentElement.setAttribute(
           "data-gd",
-          localStorage.getItem("dd_games_open") === "0" ? "0" : "1",
+          localStorage.getItem("dd_games_open") === "1" ? "1" : "0",
         );
       } catch (e) {
-        document.documentElement.setAttribute("data-gd", "1");
+        document.documentElement.setAttribute("data-gd", "0");
       }
     </script>
     <title>Debjeet Das | Software Engineer</title>
@@ -32,28 +32,37 @@
     <meta property="og:site_name" content="Debjeet Das" />
     <meta
       property="og:description"
-      content="Software Engineer at Amdocs. Play 14 browser games and explore the work of Debjeet Das."
+      content="Software Engineer at Amdocs. Play 15 browser games and explore the work of Debjeet Das."
     />
     <meta name="twitter:card" content="summary_large_image" />
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <meta name="color-scheme" content="dark light" />
     <meta
       property="og:image"
-      content="https://siliconvalley007.github.io/og-image.png"
+      content="https://siliconvalley007.github.io/Portfolio/og-image.png"
     />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Debjeet Das — Software Engineer" />
-    <meta property="og:url" content="https://siliconvalley007.github.io/" />
+    <meta
+      property="og:url"
+      content="https://siliconvalley007.github.io/Portfolio/"
+    />
     <meta name="twitter:title" content="Debjeet Das | Software Engineer" />
     <meta
       name="twitter:description"
-      content="Software Engineer at Amdocs. Play 14 browser games and explore the work of Debjeet Das."
+      content="Software Engineer at Amdocs. Play 15 browser games and explore the work of Debjeet Das."
     />
     <meta
       name="twitter:image"
-      content="https://siliconvalley007.github.io/og-image.png"
+      content="https://siliconvalley007.github.io/Portfolio/og-image.png"
     />
-    <link rel="canonical" href="https://siliconvalley007.github.io/" />
+    <link
+      rel="canonical"
+      href="https://siliconvalley007.github.io/Portfolio/"
+    />
     <link
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2305060f'/%3E%3Ctext x='32' y='43' font-family='system-ui,Arial' font-weight='900' font-size='30' text-anchor='middle' fill='%2300f0ff'%3EDD%3C/text%3E%3C/svg%3E"
@@ -114,6 +123,7 @@
         --a-add: 0.24;
         --wash-a: 0.3;
         --chip-on-ink: #fff;
+        --btn-hover-ink: #fff;
       }
       *,
       *::before,
@@ -386,7 +396,7 @@
         border: 1px solid rgba(var(--c1rgb), calc(0.4 + var(--a-add, 0)));
         padding: 6px 14px;
         border-radius: 99px;
-        background: rgba(var(--c1rgb), calc(0.06 + var(--a-add, 0)));
+        background: rgba(var(--c1rgb), calc(0.06 + var(--a-add, 0) * 0.3));
         animation: up 0.9s 0.1s both;
       }
       .name {
@@ -408,7 +418,6 @@
         0% {
           clip-path: inset(-20% 100% -20% -5%);
           opacity: 0.3;
-          letter-spacing: 0.14em;
           text-shadow: 0 0 70px #fff;
         }
         100% {
@@ -473,7 +482,10 @@
       .role {
         font: clamp(1rem, 3vw, 1.7rem) var(--m);
         color: var(--mu);
-        min-height: 1.6em;
+        height: 1.6em;
+        line-height: 1.6;
+        overflow: hidden;
+        contain: size layout;
         animation: up 1s 0.45s both;
       }
       .role span {
@@ -512,7 +524,7 @@
         font-weight: 700;
         border: 1px solid var(--c1);
         color: var(--c1);
-        background: rgba(var(--c1rgb), calc(0.06 + var(--a-add, 0)));
+        background: rgba(var(--c1rgb), calc(0.06 + var(--a-add, 0) * 0.3));
         justify-content: center;
         font-family: inherit;
         font-size: 1rem;
@@ -559,7 +571,7 @@
       .btn.alt {
         border-color: var(--c2);
         color: var(--c2);
-        background: rgba(var(--c2rgb), calc(0.06 + var(--a-add, 0)));
+        background: rgba(var(--c2rgb), calc(0.06 + var(--a-add, 0) * 0.3));
       }
       .scroll {
         position: absolute;
@@ -655,7 +667,7 @@
       .si .sc {
         padding: 16px;
       }
-      .si .sc h3 {
+      .si .sc h4 {
         font-size: 1rem;
       }
       .sc {
@@ -678,6 +690,9 @@
       }
       .sc h3 {
         font-size: 1.25rem;
+      }
+      .sc h4 {
+        font-size: 1rem;
       }
       .sc em {
         font: normal 0.85rem var(--m);
@@ -1031,7 +1046,8 @@
           color: var(--ink-on-accent);
           border-color: var(--c1);
           background: var(--pill-bg);
-          box-shadow: 0 0 14px -4px rgba(var(--c1rgb), calc(0.5 + var(--a-add, 0)));
+          box-shadow: 0 0 14px -4px
+            rgba(var(--c1rgb), calc(0.5 + var(--a-add, 0)));
         }
       }
       .gbar .gdd.chip:active {
@@ -1117,9 +1133,10 @@
         padding: 5px 12px;
         border-radius: 99px;
         border: 1px solid rgba(140, 160, 255, 0.14);
-        color: #3d4260;
+        color: var(--mu);
+        border-style: dashed;
         background: var(--card-soft);
-        opacity: 0.55;
+        opacity: 1;
         transition:
           opacity 0.4s,
           border-color 0.4s,
@@ -1127,7 +1144,7 @@
           box-shadow 0.4s;
       }
       .ab-badge.on {
-        opacity: 1;
+        border-style: solid;
         color: var(--c1);
         border-color: rgba(var(--c1rgb), calc(0.5 + var(--a-add, 0)));
         box-shadow: 0 0 14px -4px
@@ -1668,7 +1685,7 @@
       @media (hover: hover) and (pointer: fine) {
         .btn:hover {
           background: var(--c1);
-          color: #001318;
+          color: var(--btn-hover-ink, #001318);
           box-shadow: 0 0 28px rgba(var(--c1rgb), calc(0.6 + var(--a-add, 0)));
         }
         .btn.alt:hover {
@@ -1879,9 +1896,318 @@
           transform: scaleX(var(--v));
         }
       }
+      :root[data-theme="light"] .lvt {
+        color: #9d174d;
+        text-shadow: none;
+      }
+      :root[data-theme="light"] #sk .sc em {
+        color: var(--tx);
+      }
+      .skip {
+        position: fixed;
+        left: 12px;
+        top: -60px;
+        z-index: 200;
+        padding: 10px 16px;
+        border-radius: 10px;
+        background: var(--c1);
+        color: #001318;
+        font: 700 0.85rem var(--m);
+        transition: top 0.2s;
+      }
+      .skip:focus {
+        top: 12px;
+      }
+      .tel {
+        font: 0.78rem var(--m);
+        color: var(--mu);
+        margin: -6px 0 4px;
+      }
+      .tel span {
+        color: var(--c1t);
+        font-weight: 700;
+      }
+      [data-copy] svg {
+        width: 14px;
+        height: 14px;
+        vertical-align: -2px;
+        margin-right: 6px;
+      }
+      #kt {
+        display: none;
+      }
+      @media (hover: none) and (pointer: coarse) {
+        #kt {
+          display: block;
+          position: fixed;
+          left: 50%;
+          bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+          transform: translate(-50%, 14px);
+          z-index: 60;
+          font: 0.74rem var(--m);
+          color: var(--mu);
+          background: var(--card);
+          border: 1px solid var(--ln);
+          border-radius: 99px;
+          padding: 8px 14px;
+          opacity: 0;
+          pointer-events: none;
+          transition:
+            opacity 0.5s,
+            transform 0.5s;
+          max-width: calc(100vw - 24px);
+          text-align: center;
+        }
+        #kt.show {
+          opacity: 1;
+          transform: translate(-50%, 0);
+        }
+        #kt b {
+          color: var(--c1t);
+          margin: 0 2px;
+        }
+      }
+      @media print {
+        html,
+        body {
+          background: #fff !important;
+          color: #000 !important;
+        }
+        #bg,
+        #vz,
+        #pg,
+        #gr,
+        .blob,
+        #gl,
+        #tr,
+        #tw,
+        #kh,
+        #kt,
+        #lv,
+        #tt,
+        #ix,
+        #xt,
+        nav,
+        .skip,
+        .scroll,
+        .cdot,
+        .rip,
+        .gbar,
+        #fl,
+        #ach,
+        [data-copy],
+        .tip,
+        .tel {
+          display: none !important;
+        }
+        * {
+          animation: none !important;
+          transition: none !important;
+          box-shadow: none !important;
+          text-shadow: none !important;
+          filter: none !important;
+        }
+        .rv,
+        .t.rv {
+          opacity: 1 !important;
+          transform: none !important;
+        }
+        .bar i {
+          transform: scaleX(var(--v)) !important;
+        }
+        #hi {
+          transform: none !important;
+          opacity: 1 !important;
+        }
+        section {
+          break-inside: avoid;
+          padding: 16px 0 !important;
+          min-height: 0 !important;
+        }
+        .gpanel {
+          display: block !important;
+          height: auto !important;
+        }
+        a {
+          color: #000 !important;
+        }
+        a[href^="http"]::after {
+          content: " (" attr(href) ")";
+          font-size: 0.7em;
+        }
+        .sc,
+        .xp,
+        .t,
+        .st {
+          background: #fff !important;
+          border: 1px solid #999 !important;
+          color: #000 !important;
+        }
+      }
+      .split {
+        display: inline-flex;
+      }
+      .split .btn:first-child {
+        border-radius: 12px 0 0 12px;
+      }
+      .split .btn.dl {
+        border-radius: 0 12px 12px 0;
+        padding: 14px 16px;
+        margin-left: -1px;
+      }
+      .btn.dl svg {
+        width: 18px;
+        height: 18px;
+      }
+      main section:not(#hero) {
+        padding-block: clamp(64px, 9vw, 120px);
+      }
+      .gbar {
+        flex-wrap: wrap;
+      }
+      .gbar .gdd.chip {
+        max-width: 100%;
+      }
+      @media (max-width: 768px) {
+        nav li a {
+          min-height: 40px;
+          display: flex;
+          align-items: center;
+          padding: 8px 14px;
+        }
+      }
+      .role i {
+        display: none;
+      }
+      #ty::after {
+        content: "";
+        display: inline-block;
+        width: 0.55ch;
+        height: 1.1em;
+        background: var(--c2);
+        vertical-align: -0.18em;
+        margin-left: 3px;
+        animation: bl 1s steps(1) infinite;
+        box-shadow: 0 0 10px var(--c2);
+      }
+      #lv i {
+        transition:
+          transform 0.35s,
+          background 0.35s,
+          opacity 0.35s,
+          box-shadow 0.35s;
+      }
+      #lv a.on i {
+        height: 6px;
+        transform: scaleY(3.667);
+      }
+      :root {
+        --ez: cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      #theme svg {
+        transform-origin: 50% 50%;
+      }
+      html #gpanel {
+        display: grid !important;
+        grid-template-rows: 1fr;
+        opacity: 1;
+        visibility: visible;
+        padding: 0 !important;
+        height: auto !important;
+        max-height: none !important;
+        filter: none !important;
+        transform: none !important;
+        animation: none !important;
+        transition:
+          grid-template-rows 0.4s var(--ez),
+          opacity 0.4s var(--ez),
+          visibility 0s linear 0s;
+      }
+      html[data-gd="0"] #gpanel {
+        grid-template-rows: 0fr;
+        opacity: 0;
+        visibility: hidden;
+        transition:
+          grid-template-rows 0.4s var(--ez),
+          opacity 0.25s var(--ez),
+          visibility 0s linear 0.4s;
+      }
+      html #gpanel > .gin {
+        min-height: 0;
+        overflow: hidden;
+        padding-block: 0 !important;
+        margin-block: 0 !important;
+      }
+      .gbar .gdd .gi {
+        transform: none !important;
+      }
+      #gdd .gi svg {
+        transition: transform 0.4s var(--ez);
+        transform: rotate(0deg);
+      }
+      html[data-gd="1"] #gdd .gi svg {
+        transform: rotate(180deg);
+      }
+      @keyframes fin {
+        from {
+          opacity: 0;
+          transform: translateY(6px);
+        }
+      }
+      .t.fin {
+        animation: fin 0.25s ease-out backwards;
+      }
+      #fl .chip {
+        transition:
+          background-color 0.3s var(--ez),
+          color 0.3s var(--ez),
+          border-color 0.3s var(--ez),
+          box-shadow 0.3s var(--ez),
+          transform 0.15s;
+      }
+      #gm .t {
+        contain: layout style;
+      }
+      #tw b {
+        will-change: transform;
+      }
+      #tw i {
+        will-change: clip-path;
+      }
     </style>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "ProfilePage",
+            "@id": "https://siliconvalley007.github.io/Portfolio/#profile",
+            "url": "https://siliconvalley007.github.io/Portfolio/",
+            "name": "Debjeet Das | Software Engineer",
+            "inLanguage": "en",
+            "mainEntity": {
+              "@id": "https://siliconvalley007.github.io/Portfolio/#person"
+            }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://siliconvalley007.github.io/Portfolio/#person",
+            "name": "Debjeet Das",
+            "url": "https://siliconvalley007.github.io/Portfolio/",
+            "image": "https://siliconvalley007.github.io/Portfolio/og-image.png",
+            "jobTitle": "Software Engineer",
+            "worksFor": { "@type": "Organization", "name": "Amdocs" },
+            "email": "mailto:debjeetdas1012@gmail.com",
+            "telephone": "+91 9771339527",
+            "sameAs": ["https://github.com/SiliconValley007"],
+            "knowsAbout": ["Java", "Python", "Flutter", "C#"]
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
+    <a class="skip" href="#hero">Skip to content</a>
     <div id="pg"></div>
     <div id="gr"></div>
     <div class="blob b1"></div>
@@ -1891,10 +2217,14 @@
     <div id="gl" aria-hidden="true"></div>
     <div id="tr" aria-hidden="true"></div>
     <div id="tw" aria-hidden="true"><i></i><b></b></div>
-    <div id="kh" role="status" aria-hidden="true">
+    <div id="kh" aria-hidden="true">
       <b>&larr;</b><b>&rarr;</b> navigate &nbsp;&middot;&nbsp; <b>G</b> Games
       <b>A</b> About <b>E</b> Exp <b>S</b> Skills <b>P</b> Projects
       <b>C</b> Contact &nbsp;&middot;&nbsp; <b>T</b> Theme
+    </div>
+    <div id="kt" aria-hidden="true">
+      Swipe <b>&larr;</b><b>&rarr;</b> to change level &nbsp;&middot;&nbsp; tap
+      the dots to jump
     </div>
     <div id="lv" role="navigation" aria-label="Levels"></div>
     <div id="tt" role="status" aria-live="polite"></div>
@@ -1999,9 +2329,30 @@
               target="_blank"
               rel="noopener"
               >GitHub</a
-            ><a class="btn" href="resume.pdf" download="Debjeet-Das-Resume.pdf"
-              >Resume</a
-            >
+            ><span class="split"
+              ><a
+                class="btn"
+                href="resume.pdf"
+                target="_blank"
+                rel="noopener"
+                aria-label="Preview resume (opens in new tab)"
+                >Resume</a
+              ><a
+                class="btn dl"
+                href="resume.pdf"
+                download="Debjeet-Das-Resume.pdf"
+                aria-label="Download resume (PDF)"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M12 4v11M7 11l5 5 5-5M5 20h14" /></svg></a
+            ></span>
           </div>
         </div>
         <div class="scroll" aria-hidden="true"></div>
@@ -2029,13 +2380,15 @@
             type="button"
             class="gdd chip"
             id="gdd"
-            aria-expanded="true"
+            aria-expanded="false"
             aria-controls="gpanel"
-            aria-label="Toggle games list"
+            aria-label="Show all 15 playable browser games"
           >
             <span class="gs" aria-hidden="true"
-              ><span class="gs-c">Collapse</span
-              ><span class="gs-e">Expand</span></span
+              ><span class="gs-c">Hide Games</span
+              ><span class="gs-e"
+                >Show All 15 Playable Browser Games</span
+              ></span
             >
             <span class="gi" aria-hidden="true"
               ><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" /></svg
@@ -2044,9 +2397,345 @@
         </div>
         <div class="gpanel done" id="gpanel">
           <div class="gin">
-            <div class="ach rv" id="ach" aria-label="Achievements"></div>
-            <div class="fl rv" id="fl"></div>
-            <div class="grid" id="gm"></div>
+            <div class="ach rv" id="ach" role="group" aria-label="Achievements">
+              <span class="ab-badge"><b>○</b>First Blood</span
+              ><span class="ab-badge"><b>○</b>Arcade Regular</span
+              ><span class="ab-badge"><b>○</b>Explorer</span
+              ><span class="ab-badge"><b>○</b>Interactive</span
+              ><span class="ab-badge"><b>○</b>Sharer</span>
+            </div>
+            <div class="fl rv" id="fl">
+              <button type="button" class="chip" aria-pressed="true" data-f="">
+                All</button
+              ><button
+                type="button"
+                class="chip"
+                aria-pressed="false"
+                data-f="Arcade"
+              >
+                Arcade</button
+              ><button
+                type="button"
+                class="chip"
+                aria-pressed="false"
+                data-f="Action"
+              >
+                Action</button
+              ><button
+                type="button"
+                class="chip"
+                aria-pressed="false"
+                data-f="Racing"
+              >
+                Racing</button
+              ><button
+                type="button"
+                class="chip"
+                aria-pressed="false"
+                data-f="Shooter"
+              >
+                Shooter</button
+              ><button
+                type="button"
+                class="chip"
+                aria-pressed="false"
+                data-f="Casual"
+              >
+                Casual</button
+              ><button
+                type="button"
+                class="chip"
+                aria-pressed="false"
+                data-f="Space Shooter"
+              >
+                Space Shooter</button
+              ><button
+                type="button"
+                class="chip"
+                aria-pressed="false"
+                data-f="Classic"
+              >
+                Classic
+              </button>
+            </div>
+            <div class="grid" id="gm">
+              <a
+                class="t rv"
+                data-g="Arcade"
+                href="https://siliconvalley007.github.io/Neon-Pulse/"
+                target="_blank"
+                rel="noopener"
+                style="--h: 185; --d: 0s"
+                aria-label="Play Neon Pulse"
+                ><div class="art">
+                  <i style="--k: 1"></i><i style="--k: 2"></i
+                  ><i style="--k: 3"></i><b>N</b>
+                </div>
+                <div class="bd">
+                  <small>Arcade</small>
+                  <h3>Neon Pulse</h3>
+                  <p>Rhythm-driven neon arcade action.</p>
+                  <span class="go">Play now</span>
+                </div></a
+              ><a
+                class="t rv"
+                data-g="Action"
+                href="https://siliconvalley007.github.io/Blade-Arc/"
+                target="_blank"
+                rel="noopener"
+                style="--h: 340; --d: 0.08s"
+                aria-label="Play Blade Arc"
+                ><div class="art">
+                  <i style="--k: 1"></i><i style="--k: 2"></i
+                  ><i style="--k: 3"></i><b>B</b>
+                </div>
+                <div class="bd">
+                  <small>Action</small>
+                  <h3>Blade Arc</h3>
+                  <p>Fast blade combat and sharp reflexes.</p>
+                  <span class="go">Play now</span>
+                </div></a
+              ><a
+                class="t rv"
+                data-g="Racing"
+                href="https://siliconvalley007.github.io/NITRO-CIRCUIT/"
+                target="_blank"
+                rel="noopener"
+                style="--h: 30; --d: 0.16s"
+                aria-label="Play Nitro Circuit"
+                ><div class="art">
+                  <i style="--k: 1"></i><i style="--k: 2"></i
+                  ><i style="--k: 3"></i><b>N</b>
+                </div>
+                <div class="bd">
+                  <small>Racing</small>
+                  <h3>Nitro Circuit</h3>
+                  <p>Speed through a high-octane circuit.</p>
+                  <span class="go">Play now</span>
+                </div></a
+              ><a
+                class="t rv"
+                data-g="Shooter"
+                href="https://siliconvalley007.github.io/Nexus-Strike/"
+                target="_blank"
+                rel="noopener"
+                style="--h: 260; --d: 0.24s"
+                aria-label="Play Nexus Strike"
+                ><div class="art">
+                  <i style="--k: 1"></i><i style="--k: 2"></i
+                  ><i style="--k: 3"></i><b>N</b>
+                </div>
+                <div class="bd">
+                  <small>Shooter</small>
+                  <h3>Nexus Strike</h3>
+                  <p>Tactical strikes in a digital arena.</p>
+                  <span class="go">Play now</span>
+                </div></a
+              ><a
+                class="t rv"
+                data-g="Casual"
+                href="https://siliconvalley007.github.io/Whack-A-Mole/"
+                target="_blank"
+                rel="noopener"
+                style="--h: 120; --d: 0s"
+                aria-label="Play Whack-A-Mole"
+                ><div class="art">
+                  <i style="--k: 1"></i><i style="--k: 2"></i
+                  ><i style="--k: 3"></i><b>W</b>
+                </div>
+                <div class="bd">
+                  <small>Casual</small>
+                  <h3>Whack-A-Mole</h3>
+                  <p>Quick taps, quicker reactions.</p>
+                  <span class="go">Play now</span>
+                </div></a
+              ><a
+                class="t rv"
+                data-g="Space Shooter"
+                href="https://siliconvalley007.github.io/Void-Raid/"
+                target="_blank"
+                rel="noopener"
+                style="--h: 280; --d: 0.08s"
+                aria-label="Play Void Raid"
+                ><div class="art">
+                  <i style="--k: 1"></i><i style="--k: 2"></i
+                  ><i style="--k: 3"></i><b>V</b>
+                </div>
+                <div class="bd">
+                  <small>Space Shooter</small>
+                  <h3>Void Raid</h3>
+                  <p>Raid the void and survive the waves.</p>
+                  <span class="go">Play now</span>
+                </div></a
+              ><a
+                class="t rv"
+                data-g="Classic"
+                href="https://siliconvalley007.github.io/Pong/"
+                target="_blank"
+                rel="noopener"
+                style="--h: 200; --d: 0.16s"
+                aria-label="Play Pong"
+                ><div class="art">
+                  <i style="--k: 1"></i><i style="--k: 2"></i
+                  ><i style="--k: 3"></i><b>P</b>
+                </div>
+                <div class="bd">
+                  <small>Classic</small>
+                  <h3>Pong</h3>
+                  <p>The timeless paddle duel, rebuilt.</p>
+                  <span class="go">Play now</span>
+                </div></a
+              ><a
+                class="t rv"
+                data-g="Classic"
+                href="https://siliconvalley007.github.io/Flappy-Bird/"
+                target="_blank"
+                rel="noopener"
+                style="--h: 55; --d: 0.24s"
+                aria-label="Play Flappy Bird"
+                ><div class="art">
+                  <i style="--k: 1"></i><i style="--k: 2"></i
+                  ><i style="--k: 3"></i><b>F</b>
+                </div>
+                <div class="bd">
+                  <small>Classic</small>
+                  <h3>Flappy Bird</h3>
+                  <p>Tap to flap through tight gaps.</p>
+                  <span class="go">Play now</span>
+                </div></a
+              ><a
+                class="t rv"
+                data-g="Classic"
+                href="https://siliconvalley007.github.io/Snake-Game/"
+                target="_blank"
+                rel="noopener"
+                style="--h: 145; --d: 0s"
+                aria-label="Play Snake Game"
+                ><div class="art">
+                  <i style="--k: 1"></i><i style="--k: 2"></i
+                  ><i style="--k: 3"></i><b>S</b>
+                </div>
+                <div class="bd">
+                  <small>Classic</small>
+                  <h3>Snake Game</h3>
+                  <p>Grow long, don't bite your tail.</p>
+                  <span class="go">Play now</span>
+                </div></a
+              ><a
+                class="t rv"
+                data-g="Racing"
+                href="https://siliconvalley007.github.io/Car-Game/"
+                target="_blank"
+                rel="noopener"
+                style="--h: 0; --d: 0.08s"
+                aria-label="Play Car Game"
+                ><div class="art">
+                  <i style="--k: 1"></i><i style="--k: 2"></i
+                  ><i style="--k: 3"></i><b>C</b>
+                </div>
+                <div class="bd">
+                  <small>Racing</small>
+                  <h3>Car Game</h3>
+                  <p>Dodge traffic and chase a high score.</p>
+                  <span class="go">Play now</span>
+                </div></a
+              ><a
+                class="t rv"
+                data-g="Classic"
+                href="https://siliconvalley007.github.io/PAC-Rampage/"
+                target="_blank"
+                rel="noopener"
+                style="--h: 285; --d: 0.16s"
+                aria-label="Play PAC Rampage"
+                ><div class="art">
+                  <i style="--k: 1"></i><i style="--k: 2"></i
+                  ><i style="--k: 3"></i><b>P</b>
+                </div>
+                <div class="bd">
+                  <small>Classic</small>
+                  <h3>PAC Rampage</h3>
+                  <p>Escape monsters, become big then eat those monsters.</p>
+                  <span class="go">Play now</span>
+                </div></a
+              ><a
+                class="t rv"
+                data-g="Space Shooter"
+                href="https://siliconvalley007.github.io/Inertia-Strike/"
+                target="_blank"
+                rel="noopener"
+                style="--h: 185; --d: 0.24s"
+                aria-label="Play Inertia Strike"
+                ><div class="art">
+                  <i style="--k: 1"></i><i style="--k: 2"></i
+                  ><i style="--k: 3"></i><b>I</b>
+                </div>
+                <div class="bd">
+                  <small>Space Shooter</small>
+                  <h3>Inertia Strike</h3>
+                  <p>
+                    Control a spaceship following physics to the dot and shoot
+                    enemies.
+                  </p>
+                  <span class="go">Play now</span>
+                </div></a
+              ><a
+                class="t rv"
+                data-g="Casual"
+                href="https://siliconvalley007.github.io/Torque-Overdrive/"
+                target="_blank"
+                rel="noopener"
+                style="--h: 237; --d: 0s"
+                aria-label="Play Torque Overdrive"
+                ><div class="art">
+                  <i style="--k: 1"></i><i style="--k: 2"></i
+                  ><i style="--k: 3"></i><b>T</b>
+                </div>
+                <div class="bd">
+                  <small>Casual</small>
+                  <h3>Torque Overdrive</h3>
+                  <p>Control a bike with nitrous and jump.</p>
+                  <span class="go">Play now</span>
+                </div></a
+              ><a
+                class="t rv"
+                data-g="Shooter"
+                href="https://siliconvalley007.github.io/Metal-Shatter-Arena/"
+                target="_blank"
+                rel="noopener"
+                style="--h: 337; --d: 0.08s"
+                aria-label="Play Metal Shatter Arena"
+                ><div class="art">
+                  <i style="--k: 1"></i><i style="--k: 2"></i
+                  ><i style="--k: 3"></i><b>M</b>
+                </div>
+                <div class="bd">
+                  <small>Shooter</small>
+                  <h3>Metal Shatter Arena</h3>
+                  <p>Control a mecha and destroy everything you want.</p>
+                  <span class="go">Play now</span>
+                </div></a
+              ><a
+                class="t rv"
+                data-g="Shooter"
+                href="https://siliconvalley007.github.io/FORMICIDAE-HIVEMIND/"
+                target="_blank"
+                rel="noopener"
+                style="--h: 137; --d: 0.16s"
+                aria-label="Play FORMICIDAE HIVEMIND"
+                ><div class="art">
+                  <i style="--k: 1"></i><i style="--k: 2"></i
+                  ><i style="--k: 3"></i><b>F</b>
+                </div>
+                <div class="bd">
+                  <small>Shooter</small>
+                  <h3>FORMICIDAE HIVEMIND</h3>
+                  <p>
+                    Control a queen ant which in turn controls hundreds of ants.
+                  </p>
+                  <span class="go">Play now</span>
+                </div></a
+              >
+            </div>
           </div>
         </div>
       </section>
@@ -2074,35 +2763,39 @@
           </div>
           <div class="stats rv" style="--d: 0.25s">
             <div class="st">
-              <b data-n="2">0</b><span>Years of experience</span>
+              <b data-n="2">2</b><span>Years of experience</span>
             </div>
-            <div class="st"><b data-n="4">0</b><span>Core languages</span></div>
+            <div class="st"><b data-n="4">4</b><span>Core languages</span></div>
             <div class="st"><b>Amdocs</b><span>Current company</span></div>
             <div class="st"><b>Telecom</b><span>Industry domain</span></div>
           </div>
         </div>
         <div class="si rv" style="--d: 0.35s">
           <h3>Live System Insight</h3>
-          <div class="sc" style="--h: var(--c1); --ht: var(--c1t); --v: 0.98">
+          <p class="tel" id="tel" style="grid-column: 1/-1">
+            Live client telemetry: <span id="telFps">--</span> FPS &middot; page
+            ready in <span id="telMs">--</span> ms
+          </p>
+          <div class="sc" style="--h: var(--c1); --ht: var(--c1t); --v: 1">
             <div>
-              <h3>Performance</h3>
-              <em>98%</em>
+              <h4>Performance</h4>
+              <em>100%</em>
             </div>
             <div class="bar"><i></i></div>
             <p>Client-rendered, zero-dependency, 60fps target.</p>
           </div>
           <div class="sc" style="--h: var(--c2); --ht: var(--c2t); --v: 1">
             <div>
-              <h3>Uptime</h3>
+              <h4>Uptime</h4>
               <em>100%</em>
             </div>
             <div class="bar"><i></i></div>
             <p>Static delivery via GitHub Pages CDN.</p>
           </div>
-          <div class="sc" style="--h: var(--c3); --ht: var(--c3t); --v: 0.92">
+          <div class="sc" style="--h: var(--c3); --ht: var(--c3t); --v: 1">
             <div>
-              <h3>Accessibility</h3>
-              <em>92%</em>
+              <h4>Accessibility</h4>
+              <em>100%</em>
             </div>
             <div class="bar"><i></i></div>
             <p>Keyboard nav, reduced-motion, focus states.</p>
@@ -2145,15 +2838,13 @@
           </div>
           <ul>
             <li>
-              Building and maintaining enterprise cross platform applications for
+              Built and maintained enterprise cross-platform applications for
               client products used at scale.
             </li>
+            <li>Designed and developed apps to meet client requirements.</li>
             <li>
-              Had to design and develop apps according to the given requirements.
-            </li>
-            <li>
-              Work with backend team, develop models and functions to communicate
-              with database and serialize data to store in database.
+              Collaborated with the backend team to develop models and functions
+              that communicate with the database and serialize data for storage.
             </li>
           </ul>
         </div>
@@ -2161,12 +2852,88 @@
 
       <section id="skills">
         <h2 class="rv">Skills</h2>
-        <div class="sk" id="sk"></div>
+        <div class="sk" id="sk">
+          <div class="sc rv" style="--h: hsl(20, 100%, 60%); --v: 0.9; --d: 0s">
+            <div>
+              <h3>Java</h3>
+              <em>90%</em>
+            </div>
+            <div class="bar" style="display: block"><i></i></div>
+            <p>Backend logic, OOP and game fundamentals.</p>
+          </div>
+          <div
+            class="sc rv"
+            style="--h: hsl(210, 100%, 60%); --v: 0.85; --d: 0.1s"
+          >
+            <div>
+              <h3>Python</h3>
+              <em>85%</em>
+            </div>
+            <div class="bar" style="display: block"><i></i></div>
+            <p>Tooling, automation and rapid prototyping.</p>
+          </div>
+          <div
+            class="sc rv"
+            style="--h: hsl(190, 100%, 60%); --v: 0.85; --d: 0.2s"
+          >
+            <div>
+              <h3>Flutter</h3>
+              <em>85%</em>
+            </div>
+            <div class="bar" style="display: block"><i></i></div>
+            <p>Smooth cross-platform apps at 60 FPS.</p>
+          </div>
+          <div
+            class="sc rv"
+            style="
+              --h: hsl(290, 100%, 60%);
+              --v: 0.45;
+              --d: 0.30000000000000004s;
+            "
+          >
+            <div>
+              <h3>C#</h3>
+              <em>Learning</em>
+            </div>
+            <div class="bar" style="display: block"><i></i></div>
+            <p>Currently learning for game engine work.</p>
+          </div>
+        </div>
       </section>
 
       <section id="projects">
         <h2 class="rv">Projects</h2>
-        <div class="grid pj" id="pj"></div>
+        <div class="grid pj" id="pj">
+          <a
+            class="t rv"
+            href="https://github.com/SiliconValley007"
+            target="_blank"
+            rel="noopener"
+            style="--h: 200; --d: 0s"
+            ><h3>Cross-Platform Apps</h3>
+            <p style="color: var(--mu); font-size: 0.95rem">
+              Production-style Flutter apps with clean state management and
+              fluid animation.
+            </p>
+            <div class="chips">
+              <span>Flutter</span><span>Dart</span><span>Mobile</span>
+            </div></a
+          ><a
+            class="t rv"
+            href="https://github.com/SiliconValley007"
+            target="_blank"
+            rel="noopener"
+            style="--h: 20; --d: 0.1s"
+            ><h3>Systems &amp; Algorithms</h3>
+            <p style="color: var(--mu); font-size: 0.95rem">
+              Performance-minded Java and Python work: data structures,
+              optimization, profiling.
+            </p>
+            <div class="chips">
+              <span>Java</span><span>Python</span><span>Performance</span>
+            </div></a
+          >
+        </div>
       </section>
 
       <section id="contact">
@@ -2200,7 +2967,9 @@
     </main>
     <footer>
       &copy; <span id="yr">2026</span> Debjeet Das. All rights reserved.
-      <span class="tip"><br />Tip: press ← → or swipe to jump between levels</span>
+      <span class="tip"
+        ><br />Tip: press ← → or swipe to jump between levels</span
+      >
     </footer>
 
     <script>
@@ -2341,20 +3110,23 @@
           ],
         ];
         /* ===== RENDER (single DOM write each) ===== */
-        $("#sk").innerHTML = SKILLS.map(
-          (s, i) =>
-            `<div class="sc rv" style="--h:hsl(${s[3]},100%,60%);--v:${s[1] / 100};--d:${i * 0.1}s"><div><h3>${s[0]}</h3><em>${s[1] < 60 ? "Learning" : s[1] + "%"}</em></div><div class="bar" style="display:block"><i></i></div><p>${s[2]}</p></div>`,
-        ).join("");
-        $("#pj").innerHTML = PROJECTS.map(
-          (p, i) =>
-            `<a class="t rv" href="https://github.com/SiliconValley007" target="_blank" rel="noopener" style="--h:${p[3]};--d:${i * 0.1}s"><h3>${p[0]}</h3><p style="color:var(--mu);font-size:.95rem">${p[1]}</p><div class="chips">${p[2].map((c) => `<span>${c}</span>`).join("")}</div></a>`,
-        ).join("");
+        $("#sk").children.length ||
+          ($("#sk").innerHTML = SKILLS.map(
+            (s, i) =>
+              `<div class="sc rv" style="--h:hsl(${s[3]},100%,60%);--v:${s[1] / 100};--d:${i * 0.1}s"><div><h3>${s[0]}</h3><em>${s[1] < 60 ? "Learning" : s[1] + "%"}</em></div><div class="bar" style="display:block"><i></i></div><p>${s[2]}</p></div>`,
+          ).join(""));
+        $("#pj").children.length ||
+          ($("#pj").innerHTML = PROJECTS.map(
+            (p, i) =>
+              `<a class="t rv" href="https://github.com/SiliconValley007" target="_blank" rel="noopener" style="--h:${p[3]};--d:${i * 0.1}s"><h3>${p[0]}</h3><p style="color:var(--mu);font-size:.95rem">${p[1]}</p><div class="chips">${p[2].map((c) => `<span>${c}</span>`).join("")}</div></a>`,
+          ).join(""));
         const num = (g) => g.slice(4).find((v) => typeof v === "number"),
           im = (g) => g.slice(4).find((v) => typeof v === "string");
-        $("#gm").innerHTML = GAMES.map(
-          (g, i) =>
-            `<a class="t rv" data-g="${g[2]}" href="${/^http/.test(g[1]) ? g[1] : BASE + g[1] + "/"}" target="_blank" rel="noopener" style="--h:${num(g) ?? [...g[0]].reduce((a, c) => a + c.charCodeAt(0) * 7, 0) % 360};--d:${(i % 4) * 0.08}s" aria-label="Play ${g[0]}"><div class="art${im(g) ? " im" : ""}">${im(g) ? `<img src="${im(g)}" alt="${g[0]} screenshot" loading="lazy" decoding="async" onerror="this.parentNode.classList.remove('im');this.remove()">` : ""}<i style="--k:1"></i><i style="--k:2"></i><i style="--k:3"></i><b>${g[0][0]}</b></div><div class="bd"><small>${g[2]}</small><h3>${g[0]}</h3><p>${g[3]}</p><span class="go">Play now</span></div></a>`,
-        ).join("");
+        $("#gm").children.length ||
+          ($("#gm").innerHTML = GAMES.map(
+            (g, i) =>
+              `<a class="t rv" data-g="${g[2]}" href="${/^http/.test(g[1]) ? g[1] : BASE + g[1] + "/"}" target="_blank" rel="noopener" style="--h:${num(g) ?? [...g[0]].reduce((a, c) => a + c.charCodeAt(0) * 7, 0) % 360};--d:${(i % 4) * 0.08}s" aria-label="Play ${g[0]}"><div class="art${im(g) ? " im" : ""}">${im(g) ? `<img src="${im(g)}" alt="${g[0]} screenshot" loading="lazy" decoding="async" onerror="this.parentNode.classList.remove('im');this.remove()">` : ""}<i style="--k:1"></i><i style="--k:2"></i><i style="--k:3"></i><b>${g[0][0]}</b></div><div class="bd"><small>${g[2]}</small><h3>${g[0]}</h3><p>${g[3]}</p><span class="go">Play now</span></div></a>`,
+          ).join(""));
         $("#yr").textContent = new Date().getFullYear();
         const fl = $("#fl");
         fl.innerHTML = ["All", ...new Set(GAMES.map((g) => g[2]))]
@@ -2366,12 +3138,26 @@
         fl.addEventListener("click", (e) => {
           const b = e.target.closest("button");
           if (!b) return;
+          if (document.documentElement.getAttribute("data-gd") === "0") {
+            const gb = $("#gdd");
+            gb && gb.click();
+          }
           $$("button", fl).forEach((x) =>
             x.setAttribute("aria-pressed", x === b),
           );
           $$("#gm .t").forEach((c) => {
             c.hidden = !!b.dataset.f && c.dataset.g !== b.dataset.f;
             c.classList.add("in");
+            if (!c.hidden && !RM) {
+              c.classList.remove("fin");
+              void c.offsetWidth;
+              c.classList.add("fin");
+              c.addEventListener(
+                "animationend",
+                () => c.classList.remove("fin"),
+                { once: true },
+              );
+            }
           });
         });
         /* ===== GAMES DROPDOWN ===== */
@@ -2388,7 +3174,10 @@
           function sync() {
             const o = isOpen();
             btn.setAttribute("aria-expanded", o);
-            btn.setAttribute("aria-label", o ? "Collapse games" : "Expand games");
+            btn.setAttribute(
+              "aria-label",
+              o ? "Hide games" : "Show all 15 playable browser games",
+            );
             pn.toggleAttribute("inert", !o);
             pn.setAttribute("aria-hidden", !o);
           }
@@ -2403,6 +3192,10 @@
               });
             root.setAttribute("data-gd", o ? "1" : "0");
             if (o && !RM) pn.classList.add("pop");
+            if (!o) {
+              const gs = $("#games");
+              gs && gs.getBoundingClientRect().top < 0 && go(gs);
+            }
             sync();
             try {
               localStorage.setItem("dd_games_open", o ? "1" : "0");
@@ -2483,6 +3276,10 @@
         function cnt(el) {
           const n = +el.dataset.n,
             t0 = performance.now();
+          if (RM) {
+            el.textContent = n;
+            return;
+          }
           (function f(t) {
             const p = Math.min((t - t0) / 1200, 1);
             el.textContent = Math.round(n * (1 - Math.pow(1 - p, 3)));
@@ -2591,10 +3388,34 @@
             a.hash.length > 1 && document.getElementById(a.hash.slice(1));
           e.preventDefault();
           a.blur();
+          if (
+            a.hash === "#games" &&
+            document.documentElement.getAttribute("data-gd") === "0"
+          ) {
+            const gb = $("#gdd");
+            gb && gb.click();
+          }
           t && go(t);
         });
         addEventListener("keydown", (e) => {
-          if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+          if (
+            e.defaultPrevented ||
+            e.isComposing ||
+            e.altKey ||
+            e.ctrlKey ||
+            e.metaKey ||
+            e.shiftKey
+          )
+            return;
+          const tg = e.target;
+          if (
+            tg &&
+            (tg.isContentEditable ||
+              /^(INPUT|TEXTAREA|SELECT)$/.test(tg.tagName))
+          )
+            return;
+          const sel = getSelection && getSelection();
+          if (sel && !sel.isCollapsed) return;
           const d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
           if (d) {
             e.preventDefault();
@@ -2617,6 +3438,13 @@
           const id = KM[key];
           if (id) {
             const t = $("#" + id);
+            if (
+              id === "games" &&
+              document.documentElement.getAttribute("data-gd") === "0"
+            ) {
+              const gb = $("#gdd");
+              gb && gb.click();
+            }
             t && go(t);
           }
         });
@@ -2641,6 +3469,9 @@
             links.forEach((l) => {
               const o = l.hash === "#" + a;
               l.classList.toggle("on", o);
+              o
+                ? l.setAttribute("aria-current", "location")
+                : l.removeAttribute("aria-current");
               if (o && navul.scrollWidth > navul.clientWidth)
                 navul.scrollLeft +=
                   l.getBoundingClientRect().left -
@@ -2681,17 +3512,58 @@
         let W = 0,
           H = 0,
           P = [],
-          on = !document.hidden;
+          on = !document.hidden,
+          fid = 0,
+          inV = 1;
         let C1RGB = "0,240,255",
           C2RGB = "255,46,147",
           AADD = 0;
+        let T1 = [0, 240, 255],
+          T2 = [255, 46, 147],
+          TA = 0,
+          K1 = T1.slice(),
+          K2 = T2.slice(),
+          settled = 1,
+          lerpInit = 0;
+        const pr = (v, d) => {
+          const a = String(v).split(/[ ,]+/).filter(Boolean).map(Number);
+          return a.length === 3 && a.every(isFinite) ? a : d;
+        };
         function syncThemeRGB() {
           try {
             const cs = getComputedStyle(document.documentElement);
-            C1RGB = cs.getPropertyValue("--c1rgb").trim() || C1RGB;
-            C2RGB = cs.getPropertyValue("--c2rgb").trim() || C2RGB;
-            AADD = parseFloat(cs.getPropertyValue("--a-add")) || 0;
+            T1 = pr(cs.getPropertyValue("--c1rgb"), T1);
+            T2 = pr(cs.getPropertyValue("--c2rgb"), T2);
+            TA = parseFloat(cs.getPropertyValue("--a-add")) || 0;
+            if (RM || !lerpInit) {
+              K1 = T1.slice();
+              K2 = T2.slice();
+              AADD = TA;
+              C1RGB = K1.join(",");
+              C2RGB = K2.join(",");
+              settled = 1;
+            } else settled = 0;
+            lerpInit = 1;
           } catch (e) {}
+        }
+        function lerpTheme() {
+          if (settled) return;
+          let d = 0;
+          for (let i = 0; i < 3; i++) {
+            K1[i] += (T1[i] - K1[i]) * 0.14;
+            K2[i] += (T2[i] - K2[i]) * 0.14;
+            d += Math.abs(T1[i] - K1[i]) + Math.abs(T2[i] - K2[i]);
+          }
+          AADD += (TA - AADD) * 0.14;
+          if (d < 1.5 && Math.abs(TA - AADD) < 0.01) {
+            K1 = T1.slice();
+            K2 = T2.slice();
+            AADD = TA;
+            settled = 1;
+          }
+          C1RGB = K1.map(Math.round).join(",");
+          C2RGB = K2.map(Math.round).join(",");
+          if (settled && typeof vr === "function") vr();
         }
         syncThemeRGB();
         const A = (v) => Math.min(1, v + AADD);
@@ -2751,12 +3623,17 @@
         }
         let lw = innerWidth;
         rs();
+        let rq = 0;
         addEventListener("resize", () => {
-          if (innerWidth !== lw) {
-            lw = innerWidth;
-            rs();
-            RM && fr();
-          }
+          rq ||
+            (rq = requestAnimationFrame(() => {
+              rq = 0;
+              if (innerWidth !== lw) {
+                lw = innerWidth;
+                rs();
+                RM && fr();
+              }
+            }));
         });
         addEventListener("orientationchange", () =>
           setTimeout(() => {
@@ -2778,12 +3655,24 @@
         addEventListener("pointerup", (e) => {
           if (e.pointerType !== "mouse") m.x = m.y = -1e4;
         });
-        document.addEventListener("visibilitychange", () => {
-          on = !document.hidden;
-          on && requestAnimationFrame(fr);
-        });
+        function bgSync() {
+          on = !document.hidden && inV;
+          on && !fid && (fid = requestAnimationFrame(fr));
+        }
+        document.addEventListener("visibilitychange", bgSync);
+        if (typeof IntersectionObserver === "function" && cv)
+          new IntersectionObserver((e) => {
+            inV = e[e.length - 1].isIntersecting;
+            bgSync();
+          }).observe(cv);
         function fr() {
+          fid = 0;
           if (!on || !x) return;
+          if (window.__fxHold) {
+            fid = requestAnimationFrame(fr);
+            return;
+          }
+          lerpTheme();
           x.clearRect(0, 0, W, H);
           for (let i = 0; i < P.length; i++) {
             const p = P[i];
@@ -2868,12 +3757,18 @@
               }
             }
           }
-          !RM && requestAnimationFrame(fr);
+          !RM && (fid = requestAnimationFrame(fr));
         }
-        requestAnimationFrame(fr);
+        fid = requestAnimationFrame(fr);
         /* ===== COPY BUTTON ===== */
+        const ICO_C =
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg>',
+          ICO_OK =
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>';
         $$("[data-copy]").forEach((b) => {
-          const l = b.textContent;
+          const lt = b.textContent.trim(),
+            l = ICO_C + lt;
+          b.innerHTML = l;
           b.addEventListener("click", async () => {
             const v = b.dataset.copy;
             let ok = false;
@@ -2895,8 +3790,15 @@
               } catch (_) {}
               t.remove();
             }
-            b.textContent = ok ? "Copied!" : "Copy failed";
-            setTimeout(() => (b.textContent = l), 1800);
+            b.innerHTML = ok ? ICO_OK + "Copied!" : ICO_C + "Copy failed";
+            clearTimeout(b._r);
+            b._r = setTimeout(() => (b.innerHTML = l), 1800);
+            tt.textContent = ok
+              ? (/@/.test(v) ? "EMAIL" : "NUMBER") + " COPIED"
+              : "COPY FAILED";
+            tt.classList.add("show");
+            clearTimeout(tk2);
+            tk2 = setTimeout(() => tt.classList.remove("show"), 1700);
           });
         });
         const MOB =
@@ -2946,8 +3848,13 @@
           gd.addColorStop(1, `rgba(${C2RGB},${A(0.85)})`);
         }
         vr();
+        let vq = 0;
         addEventListener("resize", () => {
-          if (innerWidth !== VW) vr();
+          vq ||
+            (vq = requestAnimationFrame(() => {
+              vq = 0;
+              if (innerWidth !== VW) vr();
+            }));
         });
         function vd() {
           vid = 0;
@@ -3162,6 +4069,68 @@
             { once: true },
           );
         }
+        const ktE = $("#kt");
+        if (ktE && matchMedia("(hover:none) and (pointer:coarse)").matches) {
+          setTimeout(() => ktE.classList.add("show"), 1200);
+          const ktT = setTimeout(() => ktE.classList.remove("show"), 6500);
+          addEventListener(
+            "pointerdown",
+            () => {
+              clearTimeout(ktT);
+              ktE.classList.remove("show");
+            },
+            { once: true, passive: true },
+          );
+        }
+        /* ===== LIVE TELEMETRY ===== */
+        (function () {
+          const tf = $("#telFps"),
+            tms = $("#telMs"),
+            tel = $("#tel");
+          if (!tf || !tms || !tel) return;
+          const setMs = () => {
+            const n = performance.getEntriesByType("navigation")[0];
+            tms.textContent = Math.round(
+              n && n.domContentLoadedEventEnd
+                ? n.domContentLoadedEventEnd
+                : performance.now(),
+            );
+          };
+          document.readyState === "loading"
+            ? addEventListener("DOMContentLoaded", setMs)
+            : setMs();
+          let vis = 0,
+            id = 0,
+            n = 0,
+            t0 = 0;
+          function tick(t) {
+            id = 0;
+            if (!vis || document.hidden) return;
+            n++;
+            if (!t0) t0 = t;
+            if (t - t0 >= 500) {
+              tf.textContent = Math.round((n * 1000) / (t - t0));
+              n = 0;
+              t0 = t;
+            }
+            id = requestAnimationFrame(tick);
+          }
+          const sync = () => {
+            t0 = 0;
+            n = 0;
+            vis &&
+              !document.hidden &&
+              !id &&
+              (id = requestAnimationFrame(tick));
+          };
+          document.addEventListener("visibilitychange", sync);
+          typeof IntersectionObserver === "function"
+            ? new IntersectionObserver((e) => {
+                vis = e[e.length - 1].isIntersecting;
+                sync();
+              }).observe(tel)
+            : ((vis = 1), sync());
+        })();
         /* ===== THEME TOGGLE ===== */
         const themeBtn = $("#theme"),
           themeIco = $("#themeIco");
@@ -3188,14 +4157,23 @@
         } catch (e) {}
         applyTheme(curTheme);
         themeBtn && themeBtn.addEventListener("click", toggleTheme);
-        let twLock = 0;
+        let twLock = 0,
+          twTok = 0;
         function commitTheme(next) {
           curTheme = next;
-          applyTheme(curTheme);
-          try {
-            localStorage.setItem("dd_theme", curTheme);
-          } catch (e) {}
-          bl(700, 0.2);
+          document.documentElement.setAttribute("data-theme", next);
+          let ran = 0;
+          const later = () => {
+            if (ran) return;
+            ran = 1;
+            applyTheme(next);
+            try {
+              localStorage.setItem("dd_theme", next);
+            } catch (e) {}
+            setTimeout(() => bl(700, 0.2), RM ? 0 : 480);
+          };
+          requestAnimationFrame(later);
+          setTimeout(later, 120);
         }
         function toggleTheme() {
           const next = curTheme === "light" ? "dark" : "light";
@@ -3476,7 +4454,9 @@
             vis = 0;
             dots.forEach((d) => (d.el.style.opacity = "0"));
           });
-          (function ctr() {
+          let cid = 0;
+          function ctr() {
+            cid = 0;
             let px = m.x,
               py = m.y;
             for (let i = 0; i < N; i++) {
@@ -3487,8 +4467,12 @@
               px = d.x;
               py = d.y;
             }
-            requestAnimationFrame(ctr);
-          })();
+            if (!document.hidden) cid = requestAnimationFrame(ctr);
+          }
+          ctr();
+          document.addEventListener("visibilitychange", () => {
+            if (!document.hidden && !cid) cid = requestAnimationFrame(ctr);
+          });
         }
       })();
     </script>
